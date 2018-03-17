@@ -1,0 +1,10 @@
+snekchek
+flake8
+flake8-bugbear
+flake8-bandit
+flake8-string-format
+isort
+yapf
+vulture
+safety
+dodgy
