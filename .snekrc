@@ -1,5 +1,5 @@
 [all]
-linters = flake8, yapf, isort, vulture
+linters = flake8, yapf, isort, vulture, safety, dodgy
 
 [flake8]
 max-line-length=100
