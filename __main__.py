@@ -7,4 +7,9 @@ with open("config.json") as f:
 
 ADDRESS = ("0.0.0.0", CONFIG.get("port", 4080))  # noqa: B104
 
-Nano.start(*ADDRESS)
+nano = Nano(*ADDRESS)
+
+for path in CONFIG["paths"]:
+    nano.load_ext(path)
+
+nano.start()

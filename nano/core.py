@@ -27,6 +27,8 @@ class Route:
 
 class Nano(Application):
     def __init__(self, address, port, *args, **kwargs):
+        self.address = address
+        self.port = port
         super().__init__()
 
     def load_ext(self, import_path):
@@ -40,5 +42,5 @@ class Nano(Application):
                 self.router.add_route(
                     func.path, func.run, methods=func.methods, *func.args, **func.kwargs)
 
-    def start(self, ip, port):
-        self.run((ip, port))
+    def start(self):
+        self.run((self.address, self.port))
