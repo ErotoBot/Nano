@@ -28,7 +28,7 @@ class Registration:
 
                 new_data = []
                 for unit in data:
-                    if now - unit["timestamp"] > 120:
+                    if now - unit["timestamp"] < 120:
                         new_data.append(unit)
 
                 if new_data:
@@ -71,6 +71,10 @@ class Registration:
         srv_name = body["service_name"]
         ips = [x["address"] for x in self.services[srv_name]]
         return request.Response(code=200, json={"error": 0, "addresses": ips})
+
+    @route("/registry/names", methods=["GET"])
+    def get_names(self, request):
+        return request.Response(code=200, json={"error": 0, "data": self.service_names})
 
     @route("/registry/dump", methods=["GET"])
     def dump_all(self, request):
