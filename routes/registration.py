@@ -1,3 +1,4 @@
+# Stdlib
 import asyncio
 import datetime
 
@@ -43,10 +44,7 @@ class Registration:
         srv_name = body["service_name"]
         ip = request.remote_addr
 
-        data = {
-            "address": ip,
-            "timestamp": time
-        }
+        data = {"address": ip, "timestamp": time}
 
         if srv_name in self.service_names:
             if ip in [d["address"] for d in self.service_names[srv_name]]:
